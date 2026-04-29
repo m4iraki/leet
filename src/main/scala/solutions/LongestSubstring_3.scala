@@ -7,8 +7,7 @@ object LongestSubstring_3 extends Solution[String, Int] {
 
   def lengthOfLongestSubstring(s: String): Int = {
     val length = s.length
-    val lastSeen: Array[Int] =
-      Array.fill(Char.MaxValue - Char.MinValue)(-1)
+    val lastSeen: Array[Int] = Array.fill(128)(-1)
     @tailrec def inner(
       pos: Int,
       from: Int,
