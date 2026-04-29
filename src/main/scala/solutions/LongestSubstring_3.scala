@@ -9,7 +9,7 @@ object LongestSubstring_3 extends Solution[String, Int] {
     val length = s.length
     if length < 2 then length
     else {
-      val lastSeen: Array[Int] = Array.fill(128)(-1)
+      val lastSeen = new Array[Int](128)
 
       @tailrec def inner(
         pos: Int,
@@ -20,9 +20,9 @@ object LongestSubstring_3 extends Solution[String, Int] {
         else {
           val char = s.charAt(pos)
           val last = lastSeen(char)
-          lastSeen.update(char, pos)
-          if last >= from
-          then inner(pos + 1, last + 1, math.max(pos - from, longest))
+          lastSeen.update(char, pos + 1)
+          if last > from
+          then inner(pos + 1, last, math.max(pos - from, longest))
           else inner(pos + 1, from, longest)
         }
 
@@ -39,6 +39,7 @@ object LongestSubstring_3 extends Solution[String, Int] {
     "aab" -> 2,
     "dvdf" -> 3,
     "aabaab!bb" -> 3,
+    "au" -> 2,
   )
 
 }

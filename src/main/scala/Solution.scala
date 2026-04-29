@@ -24,14 +24,14 @@ object Solution {
       runtime.gc()
       Thread.sleep(50)
       val before = runtime.totalMemory() - runtime.freeMemory()
-      val start = System.currentTimeMillis()
+      val start = System.nanoTime()
       val res = solution.run(io._1)
-      val end = System.currentTimeMillis()
+      val end = System.nanoTime()
       val after = runtime.totalMemory() - runtime.freeMemory()
       val elapsed = end - start
       val taken = (after - before) / 1024
       val ok = eq.equals(res, io._2)
-      val summary = f"elapsed $elapsed%,d ms. used $taken%,d KB"
+      val summary = f"elapsed $elapsed%,d nanos. used $taken%,d KB"
       if ok then s"succeed with result ${sh.show(res)}. " + summary
       else
         s"failed with result ${sh.show(res)}. " +
