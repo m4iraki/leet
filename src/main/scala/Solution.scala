@@ -3,7 +3,7 @@ package io.github.m4iraki
 trait Solution[I, O] {
   type Input = I
   type Output = O
-  def run(i: I): O
+  def run: I => O
   def samples: Seq[(I, O)]
 }
 

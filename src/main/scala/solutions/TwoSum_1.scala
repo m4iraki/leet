@@ -19,7 +19,7 @@ object TwoSum_1 extends Solution[(Array[Int], Int), Array[Int]] {
     inner(0)
   }
 
-  def run(i: Input): Output = twoSum.tupled(i)
+  def run: Input => Output = twoSum.tupled
 
   def samples: Seq[(Input, Output)] = List(
     (Array(2, 7, 11, 15), 9) -> Array(0, 1),
