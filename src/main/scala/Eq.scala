@@ -6,15 +6,20 @@ trait Eq[A] {
 
 object Eq {
 
-  given [A: Eq: Ordering]: Eq[Array[A]] with {
+  def unorderedArray[A: Eq: Ordering]: Eq[Array[A]] =
+    (a: Array[A], b: Array[A]) => a.sorted.sameElements(b.sorted)
 
-    def equals(a: Array[A], b: Array[A]): Boolean =
-      a.sorted.sameElements(b.sorted)
+  def orderedArray[A: Eq: Ordering]: Eq[Array[A]] =
+    (a: Array[A], b: Array[A]) => a.sameElements(b)
 
-  }
-
+  given [A: Eq: Ordering]: Eq[Array[A]] = unorderedArray
   given Eq[Int] with {
     def equals(a: Int, b: Int): Boolean = a == b
   }
-  def apply[A](using eq: Eq[A]): Eq[A] = eq
+
+  def apply[A](
+    using
+    eq: Eq[A],
+  ): Eq[A] = eq
+
 }
