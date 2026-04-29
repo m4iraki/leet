@@ -7,22 +7,27 @@ object LongestSubstring_3 extends Solution[String, Int] {
 
   def lengthOfLongestSubstring(s: String): Int = {
     val length = s.length
-    val lastSeen: Array[Int] = Array.fill(128)(-1)
-    @tailrec def inner(
-      pos: Int,
-      from: Int,
-      longest: Int,
-    ): Int =
-      if pos >= length then math.max(pos - from, longest)
-      else {
-        val char = s.charAt(pos)
-        val last = lastSeen(char)
-        lastSeen.update(char, pos)
-        if last >= from
-        then inner(pos + 1, last + 1, math.max(pos - from, longest))
-        else inner(pos + 1, from, longest)
-      }
-    inner(0, 0, 0)
+    if length < 2 then length
+    else {
+      val lastSeen: Array[Int] = Array.fill(128)(-1)
+
+      @tailrec def inner(
+        pos: Int,
+        from: Int,
+        longest: Int,
+      ): Int =
+        if pos >= length then math.max(pos - from, longest)
+        else {
+          val char = s.charAt(pos)
+          val last = lastSeen(char)
+          lastSeen.update(char, pos)
+          if last >= from
+          then inner(pos + 1, last + 1, math.max(pos - from, longest))
+          else inner(pos + 1, from, longest)
+        }
+
+      inner(0, 0, 0)
+    }
   }
 
   def run: String => Int = lengthOfLongestSubstring
