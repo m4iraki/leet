@@ -10,6 +10,10 @@ object Show {
     def show(a: Int): String = a.toString
   }
 
+  given Show[Double] with {
+    def show(a: Double): String = f"$a%,.2f"
+  }
+
   given [A](
     using
     s: Show[A],

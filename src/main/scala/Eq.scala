@@ -16,6 +16,9 @@ object Eq {
   given Eq[Int] with {
     def equals(a: Int, b: Int): Boolean = a == b
   }
+  given Eq[Double] with {
+    def equals(a: Double, b: Double): Boolean = a == b
+  }
 
   def apply[A](
     using
