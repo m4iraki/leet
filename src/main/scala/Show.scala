@@ -13,6 +13,9 @@ object Show {
   given Show[Double] with {
     def show(a: Double): String = f"$a%,.2f"
   }
+  given Show[String] with {
+    def show(a: String): String = a
+  }
 
   given [A](
     using
