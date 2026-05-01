@@ -1,7 +1,7 @@
 package io.github.m4iraki
 package solutions
 
-object LongestPalindromic_5 extends Solution[String, String] {
+object _5_LongestPalindromic extends Solution[String, String] {
 
   import scala.annotation.tailrec
 

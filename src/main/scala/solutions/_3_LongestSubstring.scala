@@ -1,7 +1,7 @@
 package io.github.m4iraki
 package solutions
 
-object LongestSubstring_3 extends Solution[String, Int] {
+object _3_LongestSubstring extends Solution[String, Int] {
 
   import scala.annotation.tailrec
 

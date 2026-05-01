@@ -1,7 +1,7 @@
 package io.github.m4iraki
 package solutions
 
-object MedianOf2Arrays_4 extends Solution[(Array[Int], Array[Int]), Double] {
+object _4_MedianOf2Arrays extends Solution[(Array[Int], Array[Int]), Double] {
 
   import scala.annotation.tailrec
 

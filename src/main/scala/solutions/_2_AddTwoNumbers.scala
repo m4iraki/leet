@@ -1,10 +1,10 @@
 package io.github.m4iraki
 package solutions
 
-object AddTwoNumbers_2
+object _2_AddTwoNumbers
   extends Solution[
-    (AddTwoNumbers_2.ListNode, AddTwoNumbers_2.ListNode),
-    AddTwoNumbers_2.ListNode,
+    (_2_AddTwoNumbers.ListNode, _2_AddTwoNumbers.ListNode),
+    _2_AddTwoNumbers.ListNode,
   ] {
 
   import scala.annotation.tailrec
