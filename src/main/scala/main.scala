@@ -3,6 +3,6 @@ import solutions.*
 
 @main
 def main(): Unit = {
-  Solution.measure(_7_ReverseInteger, runs = 5, warmup = 0)
+  Solution.measure(_8_StringToInteger, runs = 5, warmup = 0)
 
 }
