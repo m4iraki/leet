@@ -21,6 +21,15 @@ object _9_PalindromeNumber extends Solution[Int, Boolean] {
   def naive(x: Int): Boolean =
     x.toString == x.toString.reverse
 
+  def naiveOptimized(x: Int): Boolean = (x >= 0) && (
+    (x < 10) || (
+      (x % 10 != 0) && {
+        val str = x.toString
+        str == str.reverse
+      }
+    )
+  )
+
   def run: Int => Boolean = isPalindrome
 
   def sample: (Int, Boolean) = {
