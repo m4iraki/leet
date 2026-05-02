@@ -6,15 +6,13 @@ trait Show[A] {
 
 object Show {
 
-  given Show[Int] with {
-    def show(a: Int): String = a.toString
-  }
+  def fromToString[A]: Show[A] = _.toString
+  given Show[Int] = fromToString
+  given Show[String] = fromToString
+  given Show[Boolean] = fromToString
 
   given Show[Double] with {
     def show(a: Double): String = f"$a%,.2f"
-  }
-  given Show[String] with {
-    def show(a: String): String = a
   }
 
   given [A](

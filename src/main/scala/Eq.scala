@@ -5,6 +5,12 @@ trait Eq[A] {
 }
 
 object Eq {
+  def fromEquals[A]: Eq[A] = _ equals _
+
+  given Eq[Int] = fromEquals
+  given Eq[Double] = fromEquals
+  given Eq[String] = fromEquals
+  given Eq[Boolean] = fromEquals
 
   def unorderedArray[A: Eq: Ordering]: Eq[Array[A]] =
     (a: Array[A], b: Array[A]) => a.sorted.sameElements(b.sorted)
@@ -13,15 +19,6 @@ object Eq {
     (a: Array[A], b: Array[A]) => a.sameElements(b)
 
   given [A: Eq: Ordering]: Eq[Array[A]] = unorderedArray
-  given Eq[Int] with {
-    def equals(a: Int, b: Int): Boolean = a == b
-  }
-  given Eq[Double] with {
-    def equals(a: Double, b: Double): Boolean = a == b
-  }
-  given Eq[String] with {
-    def equals(a: String, b: String): Boolean = a == b
-  }
 
   def apply[A](
     using
