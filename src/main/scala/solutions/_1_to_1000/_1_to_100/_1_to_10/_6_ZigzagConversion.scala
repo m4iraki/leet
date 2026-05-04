@@ -1,5 +1,5 @@
 package io.github.m4iraki
-package solutions._1_to_10
+package solutions._1_to_1000._1_to_100._1_to_10
 
 object _6_ZigzagConversion extends Solution[(String, Int), String] {
   import scala.annotation.tailrec

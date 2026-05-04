@@ -1,5 +1,5 @@
 package io.github.m4iraki
-package solutions._1_to_10
+package solutions._1_to_1000._1_to_100._1_to_10
 
 object _4_MedianOf2Arrays extends Solution[(Array[Int], Array[Int]), Double] {
 
