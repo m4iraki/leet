@@ -1,5 +1,5 @@
 package io.github.m4iraki
-package solutions
+package solutions._1_to_10
 
 object _7_ReverseInteger extends Solution[Int, Int] {
 

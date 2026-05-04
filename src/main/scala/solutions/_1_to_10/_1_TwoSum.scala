@@ -1,8 +1,8 @@
 package io.github.m4iraki
-package solutions
+package solutions._1_to_10
 
 object _1_TwoSum extends Solution[(Array[Int], Int), Array[Int]] {
-  import scala.collection.mutable.{HashMap => MutableMap}
+  import scala.collection.mutable.HashMap as MutableMap
 
   def twoSum(nums: Array[Int], target: Int): Array[Int] = {
     val visited: MutableMap[Int, Int] =

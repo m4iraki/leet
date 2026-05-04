@@ -1,5 +1,6 @@
 package io.github.m4iraki
-import solutions.*
+
+import solutions._1_to_10._9_PalindromeNumber
 
 @main
 def main(): Unit = {

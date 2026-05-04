@@ -1,5 +1,5 @@
 package io.github.m4iraki
-package solutions
+package solutions._1_to_10
 
 object _3_LongestSubstring extends Solution[String, Int] {
 
