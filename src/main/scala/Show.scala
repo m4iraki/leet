@@ -22,4 +22,11 @@ object Show {
     def show(a: Array[A]): String = a.map(s.show).mkString("[", ",", "]")
   }
 
+  given [A](
+    using
+    s: Show[A],
+  ): Show[List[A]] with {
+    def show(a: List[A]): String = a.map(s.show).mkString("[", ",", "]")
+  }
+
 }
