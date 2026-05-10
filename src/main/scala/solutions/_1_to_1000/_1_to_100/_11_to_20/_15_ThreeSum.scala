@@ -7,41 +7,33 @@ object _15_ThreeSum extends Solution[Array[Int], List[List[Int]]] {
     val sorted = nums.sorted
     val len = sorted.length
     @scala.annotation.tailrec
+    def search(idx: Int, step: Int, limit: Int, prev: Int): Int =
+      if idx == limit then limit
+      else if sorted(idx + step) == prev then
+        search(idx + step, step, limit, prev)
+      else idx + step
+
+    @scala.annotation.tailrec
     def loop(
       idx: Int,
-      prev: Option[Int],
+      l: Int,
+      r: Int,
       acc: List[List[Int]],
     ): List[List[Int]] =
-      if idx + 2 >= len then acc
-      else {
-        val fst = sorted(idx)
-        if prev.contains(fst)
-        then loop(idx + 1, prev, acc)
-        else {
-
-          @scala.annotation.tailrec
-          def innerLoop(
-            l: Int,
-            r: Int,
-            innerAcc: List[List[Int]],
-          ): List[List[Int]] =
-            if l >= r then innerAcc
-            else {
-              val sum = fst + sorted(l) + sorted(r)
-              if sum == 0 then innerLoop(l + 1, r - 1, List(idx, l, r) :: innerAcc)
-              else if sum > 0 then innerLoop(l, r - 1, innerAcc)
-              else innerLoop(l + 1, r, innerAcc)
-            }
-
-          val res = innerLoop(idx + 1, len - 1, Nil).distinct
-          loop(
-            idx + 1,
-            Some(fst),
-            res ::: acc,
-          )
-        }
+      if idx >= len - 2 then acc
+      else if l >= r then {
+        val next = search(idx, 1, len - 2, sorted(idx))
+        loop(next, next + 1, len - 1, acc)
+      } else {
+        val sum = sorted(idx) + sorted(l) + sorted(r)
+        if sum == 0 then {
+          val nextL = search(l, 1, r, sorted(l))
+          val nextR = search(r, -1, l, sorted(r))
+          loop(idx, nextL, nextR, List(idx, l, r) :: acc)
+        } else if sum > 0 then loop(idx, l, search(r, -1, l, sorted(r)), acc)
+        else loop(idx, search(l, 1, r, sorted(l)), r, acc)
       }
-    loop(0, None, Nil).map(_.map(sorted.apply)).distinct
+    loop(0, 1, len - 1, Nil).map(_.map(sorted.apply)).distinct
   }
 
   import scala.collection.mutable.HashMap as MutableMap
@@ -94,6 +86,7 @@ object _15_ThreeSum extends Solution[Array[Int], List[List[Int]]] {
     Array(-1, 0, 1, 2, -1, -4) -> List(List(-1, 0, 1), List(-1, -1, 2)),
     Array(0, 1, 1) -> List(),
     Array(0, 0, 0) -> List(List(0, 0, 0)),
+    new Array[Int](3000) -> List(List(0, 0, 0)),
   )
 
 }
