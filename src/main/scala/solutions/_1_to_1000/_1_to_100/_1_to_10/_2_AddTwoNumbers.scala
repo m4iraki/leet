@@ -84,10 +84,12 @@ object _2_AddTwoNumbers
     def toList(listNode: ListNode): List[Int] = {
       @tailrec
       def inner(l: ListNode, acc: List[Int]): List[Int] =
-        Option(l.next) match {
+        if l == null then Nil
+        else Option(l.next) match {
           case Some(value) => inner(value, acc.appended(l.x))
           case None        => acc.appended(l.x)
         }
+
       inner(listNode, Nil)
     }
 
