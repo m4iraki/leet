@@ -7,7 +7,7 @@ def main(): Unit = {
   given e2: Eq[List[List[Int]]] = Eq.unordered
   given o2: Ordering[List[List[Int]]] = Eq.unordered
   Solution.measure(
-    io.github.m4iraki.solutions._1_to_1000._1_to_100._11_to_20._15_ThreeSum,
+    io.github.m4iraki.solutions._1_to_1000._1_to_100._11_to_20._16_ThreeSumClosest,
     runs = 1,
     warmup = 0,
   )
