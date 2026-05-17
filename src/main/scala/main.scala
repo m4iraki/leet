@@ -5,7 +5,7 @@ def main(): Unit = {
   given [T: Eq: Ordering]: Eq[List[T]] = Eq.unordered[List, T]
   given [T: Eq: Ordering]: Ordering[List[T]] = Eq.unordered[List, T]
   Solution.measure(
-    io.github.m4iraki.solutions._1_to_1000._1_to_100._21_to_30._21_MergeSortedLists,
+    io.github.m4iraki.solutions._1_to_1000._1_to_100._21_to_30._22_Generate_Parentheses,
     runs = 1,
     warmup = 0,
   )
