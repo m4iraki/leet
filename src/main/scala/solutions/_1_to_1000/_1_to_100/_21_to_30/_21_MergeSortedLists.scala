@@ -31,13 +31,8 @@ object _21_MergeSortedLists extends Solution[(ListNode, ListNode), ListNode] {
           accum.next = next
           inner(list1, list2.next, next, first)
         }
-      if list1.x < list2.x then {
-        val first = new ListNode(list1.x, null)
-        inner(list1.next, list2, first, first)
-      } else {
-        val first = new ListNode(list2.x, null)
-        inner(list1, list2.next, first, first)
-      }
+      val fakeNode = new ListNode(0, null)
+      inner(list1, list2, fakeNode, fakeNode).next
     }
 
   def run: ((ListNode, ListNode)) => ListNode = mergeTwoLists
