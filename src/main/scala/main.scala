@@ -4,7 +4,7 @@ package io.github.m4iraki
 def main(): Unit = {
   given Eq[List[Int]] = Eq.unordered
   Solution.measure(
-    io.github.m4iraki.solutions._1_to_1000._1_to_100._21_to_30._30_SubstringWithConcatenationOfAllWords,
+    io.github.m4iraki.solutions._1_to_1000._1_to_100._31_to_40._31_NextPermutation,
     runs = 1,
     warmup = 0,
   )

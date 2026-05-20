@@ -29,4 +29,5 @@ object Show {
     def show(a: List[A]): String = a.map(s.show).mkString("[", ",", "]")
   }
 
+  given Show[Unit] = _ => "{}"
 }

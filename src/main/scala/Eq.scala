@@ -51,4 +51,5 @@ object Eq {
     eq: Eq[A],
   ): Eq[A] = eq
 
+  given Eq[Unit] = (_, _) => true
 }
