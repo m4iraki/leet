@@ -15,7 +15,7 @@ object _33_SearchInRotatedSortedArray extends Solution[(Array[Int], Int), Int] {
       else if rV == target then right
       else if left + 1 >= right then -1
       else {
-        val split = left + (right - left) / 2
+        val split = (left + right) / 2
         val sV = nums(split)
 
         if sV == target then split
