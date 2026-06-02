@@ -6,7 +6,7 @@ def main(): Unit = {
 //  _37_SudokuSolver.run(_37_SudokuSolver.samples(1)._1)
   given Eq[Array[Int]] = Eq.unorderedArray
   Solution.measure(
-    solutions._1_to_1000._1_to_100._31_to_40._35_SearchInsertPosition,
+    solutions._1_to_1000._1_to_100._31_to_40._36_SudokuValidation,
     runs = 1,
     warmup = 0,
   )
