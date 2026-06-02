@@ -2,9 +2,11 @@ package io.github.m4iraki
 
 @main
 def main(): Unit = {
-  given Eq[List[Int]] = Eq.unordered
+//  import solutions._1_to_1000._1_to_100._31_to_40._37_SudokuSolver
+//  _37_SudokuSolver.run(_37_SudokuSolver.samples(1)._1)
+  given Eq[Array[Int]] = Eq.unorderedArray
   Solution.measure(
-    io.github.m4iraki.solutions._1_to_1000._1_to_100._31_to_40._33_SearchInRotatedSortedArray,
+    solutions._1_to_1000._1_to_100._31_to_40._34_FirstAndLastPosOfElement,
     runs = 1,
     warmup = 0,
   )
